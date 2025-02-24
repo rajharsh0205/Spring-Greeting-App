@@ -1,5 +1,6 @@
 package com.tit.GreetingAppDevelopment.controller;
 
+import com.tit.GreetingAppDevelopment.dto.GreetingRequest;
 import com.tit.GreetingAppDevelopment.service.GreetingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,9 @@ public class GreetingController {
     }
 
     @PostMapping
-    public ResponseEntity<Map<String, String>> postGreeting() {
+    public ResponseEntity<Map<String, String>> postGreeting(@RequestBody GreetingRequest greetingRequest) {
         Map<String, String> response = new HashMap<>();
-        response.put("message", "Hello from POST method!");
+        response.put("message","Hello " + greetingRequest.getFirstName() + " " + greetingRequest.getLastName());
         return ResponseEntity.ok(response);
     }
 
