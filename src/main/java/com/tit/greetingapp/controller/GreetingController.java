@@ -1,5 +1,6 @@
 package com.tit.greetingapp.controller;
 
+import com.tit.greetingapp.service.GreetingService;
 import com.tit.greetingapp.DTO.Greeting;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,5 @@ public class GreetingController {
     public Greeting deleteGreeting() {
         return new Greeting("Hello, this is a DELETE request!");
     }
-
 
 }
