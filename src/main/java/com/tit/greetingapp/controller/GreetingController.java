@@ -1,7 +1,6 @@
 package com.tit.greetingapp.controller;
 
 import com.tit.greetingapp.service.GreetingService;
-import com.tit.greetingapp.DTO.Greeting;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,6 +26,12 @@ public class GreetingController {
         return new Greeting(greetingService.getPersonalizedGreeting(firstName, lastName));
     }
 
+    //  UC4 - Save a Greeting Message
+    @PostMapping("/save")
+    public com.tit.greetingapp.model.Greeting saveGreeting(@RequestBody Greeting request) {
+        return greetingService.saveGreeting(request.getMessage()); // Save in DB
+    }
+
 
     @GetMapping
     public Greeting getGreeting() {
@@ -46,6 +51,22 @@ public class GreetingController {
     @DeleteMapping
     public Greeting deleteGreeting() {
         return new Greeting("Hello, this is a DELETE request!");
+    }
+
+    static class Greeting {
+        private String message;
+
+        public Greeting(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
     }
 
 }
