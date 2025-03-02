@@ -44,7 +44,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- ✅ H2 Database (Use this for in-memory testing instead of MySQL) -->
 		<dependency>
 			<groupId>com.h2database</groupId>

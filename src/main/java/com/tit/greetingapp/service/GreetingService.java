@@ -32,4 +32,5 @@ public class GreetingService {
         Greeting greeting = new Greeting(message); // Create a Greeting entity
         return greetingRepository.save(greeting);  // Save to database
     }
+
 }
