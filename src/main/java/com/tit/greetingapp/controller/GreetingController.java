@@ -3,6 +3,8 @@ package com.tit.greetingapp.controller;
 import com.tit.greetingapp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -30,6 +32,17 @@ public class GreetingController {
     @PostMapping("/save")
     public com.tit.greetingapp.model.Greeting saveGreeting(@RequestBody Greeting request) {
         return greetingService.saveGreeting(request.getMessage()); // Save in DB
+    }
+
+    // UC5 - Fetch Greeting by ID
+    @GetMapping("/{id}")
+    public com.tit.greetingapp.model.Greeting getGreeting(@PathVariable Long id) {
+        return greetingService.getGreetingById(id);
+    }
+
+    @GetMapping("/list")
+    public List<com.tit.greetingapp.model.Greeting> getAllGreetings() {
+        return greetingService.getAllGreetings();
     }
 
 
@@ -68,5 +81,4 @@ public class GreetingController {
             this.message = message;
         }
     }
-
 }
