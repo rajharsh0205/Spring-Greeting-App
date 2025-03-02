@@ -32,12 +32,6 @@ public class GreetingController {
         return greetingService.saveGreeting(request.getMessage()); // Save in DB
     }
 
-    // UC5 - Fetch Greeting by ID
-    @GetMapping("/{id}")
-    public com.tit.greetingapp.model.Greeting getGreeting(@PathVariable Long id) {
-        return greetingService.getGreetingById(id);
-    }
-
 
     @GetMapping
     public Greeting getGreeting() {

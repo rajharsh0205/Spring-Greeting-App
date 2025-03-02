@@ -12,6 +12,7 @@ public class GreetingService {
     public GreetingService(GreetingRepository greetingRepository) {
         this.greetingRepository = greetingRepository;
     }
+
     public String getGreetingMessage() {
         return "Hello World";
     }
@@ -32,9 +33,4 @@ public class GreetingService {
         return greetingRepository.save(greeting);  // Save to database
     }
 
-    // UC5 - Retrieve a Greeting by ID
-    public Greeting getGreetingById(Long id) {
-        return greetingRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Greeting not found for ID: " + id));
-    }
 }
